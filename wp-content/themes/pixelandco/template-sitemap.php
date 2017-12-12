@@ -3,18 +3,18 @@
 Template Name: Sitemap
 */
 get_header();
-$My_Walker = new Clean_Walker();
-$Cat_Walker = new Custom_Walker_Category();
+//$My_Walker = new Clean_Walker();
+//$Cat_Walker = new Custom_Walker_Category();
 ?>
 <h1 class="text-center site-map-title">Plan du site</h1>
 <div class="row nomarge">
 		<div class="col-xs-4">
 			<h2 class="text-center site-map-h2"><?php _e('Formations', 'pixelandco'); ?></h2>
-			<ul class="list-group"><?php wp_list_pages(array('post_type' => 'formation', 'title_li' => '', 'walker' => $My_Walker)); ?></ul>
+			<ul class="list-group"><?php wp_list_pages(array('post_type' => 'formation', 'title_li' => '')); ?></ul>
 		</div>
 		<div class="col-xs-4">
 			<h2 class="text-center site-map-h2"><?php _e('Categories', 'pixelandco'); ?></h2>
-			<ul class="list-group"><?php wp_list_categories(array('sort_column' => 'name', 'optioncount' => 1, 'hierarchical' => 0, 'walker' => $Cat_Walker, 'title_li' => '')); ?></ul>
+			<ul class="list-group"><?php wp_list_categories(array('sort_column' => 'name', 'optioncount' => 1, 'hierarchical' => 0,  'title_li' => '')); ?></ul>
 		</div>
 		<div class="col-xs-4">
 			<h2 class="text-center site-map-h2"><?php _e('RSS Feeds', 'pixelandco'); ?></h2>
@@ -29,12 +29,12 @@ $Cat_Walker = new Custom_Walker_Category();
 
 		<div class="col-xs-4">
 			<h2 class="text-center site-map-h2"><?php _e('Pages', 'pixelandco'); ?></h2>
-			<ul class="list-group"><?php wp_list_pages(array('title_li' => '', 'walker' => $My_Walker)); ?></ul>
+			<ul class="list-group"><?php wp_list_pages(array('title_li' => '')); ?></ul>
 		</div>
 
 		<div class="col-xs-4">
 			<h2 class="text-center site-map-h2"><?php _e('Portfolios', 'pixelandco'); ?></h2>
-			<ul class="list-group"><?php wp_list_pages(array('post_type' => 'portfolio', 'title_li' => '', 'walker' => $My_Walker)); ?></ul>
+			<ul class="list-group"><?php wp_list_pages(array('post_type' => 'portfolio', 'title_li' => '')); ?></ul>
 		</div>
 
 		<div class="col-xs-4">

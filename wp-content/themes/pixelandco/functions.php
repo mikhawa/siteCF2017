@@ -141,10 +141,10 @@ function pixelandco_queryvars( $qvars ) {
 if (!function_exists('list_custom_archive')):
 
 function list_custom_archive($query) {
-  if (is_post_type_archive('formation') && is_main_query() && !is_admin()) {
+  if (is_post_type_archive('formation') && $query->is_main_query() && !is_admin()) {
     $query->set( 'posts_per_page', -1 );
     $query->set( 'order', 'ASC' );
-  }elseif(is_post_type_archive('portfolio') && is_main_query() && !is_admin()){
+  }elseif(is_post_type_archive('portfolio') && $query->is_main_query() && !is_admin()){
     $query->set( 'posts_per_page', -1 );
     $query->set( 'order', 'ASC' );
   }
