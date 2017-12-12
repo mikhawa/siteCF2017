@@ -134,7 +134,7 @@ if(!is_front_page()){
 								<i class="fa fa-bars"></i>
 							</button>
 						<?php 
-						if($display_nav_employers){
+						if(isset($display_nav_employers)){
 
 				            wp_nav_menu( array(
 				                'theme_location' => 'Employers',
@@ -146,7 +146,7 @@ if(!is_front_page()){
 								'walker' => new wp_bootstrap_navwalker()
 							));
 
-				        }elseif($display_nav_students){
+				        }elseif(isset($display_nav_students)){
 
 				            wp_nav_menu( array(
 				                        'theme_location' => 'Students',

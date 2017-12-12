@@ -5,7 +5,8 @@
 		<?php
 		$metas = get_post_meta(get_the_ID());
 		$image = get_field('title_logo');
-		$img = end(explode('/', $image));
+		$my = explode('/', $image);
+		$img = end($my);
 		$rgb = hex2rgb($metas['couleur'][0]);
 		$rgba = 'rgba('.$rgb[0].','.$rgb[1].','.$rgb[2].',0.8)';
 		?>
@@ -65,7 +66,7 @@
 			<div class="col-sm-4">
 				<div class="f-box">
 				  	<div class="f-box-heading">
-				    	<h4 class="f-box-title"><?php if($atouts_jeunes){print 'Conditions d\'accès';}else{print 'Métier';} ?></h4>
+				    	<h4 class="f-box-title"><?php if(isset($atouts_jeunes)){print 'Conditions d\'accès';}else{print 'Métier';} ?></h4>
 				  	</div>
 				  	<div class="f-box-body">
 				    	<?php print $metas['metier'][0]; ?>
@@ -76,7 +77,7 @@
 			<div class="col-sm-4">
 				<div class="f-box">
 				  	<div class="f-box-heading">
-				    	<h4 class="f-box-title"><?php if($atouts_jeunes){print 'Formation de base';}else{print 'Qualités';} ?></h4>
+				    	<h4 class="f-box-title"><?php if(isset($atouts_jeunes)){print 'Formation de base';}else{print 'Qualités';} ?></h4>
 				  	</div>
 				  	<div class="f-box-body">
 				    	<?php print $metas['qualites'][0]; ?>
@@ -87,7 +88,7 @@
 			<div class="col-sm-4">
 				<div class="f-box">
 				  	<div class="f-box-heading">
-				    	<h4 class="f-box-title"><?php if($atouts_jeunes){print 'Objectifs';}else{print 'Compétences';} ?></h4>
+				    	<h4 class="f-box-title"><?php if(isset($atouts_jeunes)){print 'Objectifs';}else{print 'Compétences';} ?></h4>
 				  	</div>
 				  	<div class="f-box-body">
 				    	<?php print $metas['competences'][0]; ?>
@@ -116,9 +117,9 @@
 				  	<div class=" text-center">
 <div class="f-box-heading">
 				    	<ul class="nav nav-tabs nav-justified" role="tablist">
-			    			<li role="presentation" class="active"><a href="#prefo" aria-controls="prefo" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php if($atouts_jeunes){print 'Tests d\'entrée';}else{print 'Préfo';} ?></a></li>
-			    			<li role="presentation" class=""><a href="#fq" aria-controls="fq" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php if($atouts_jeunes){print 'Lieu de formation';}else{print 'Formation qualifiante';} ?></a></li>
-			    			<li role="presentation" class=""><a href="#stage" aria-controls="stage" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php if($atouts_jeunes){print 'Contrat';}else{print 'Stage';} ?></a></li>
+			    			<li role="presentation" class="active"><a href="#prefo" aria-controls="prefo" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php if(isset($atouts_jeunes)){print 'Tests d\'entrée';}else{print 'Préfo';} ?></a></li>
+			    			<li role="presentation" class=""><a href="#fq" aria-controls="fq" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php if(isset($atouts_jeunes)){print 'Lieu de formation';}else{print 'Formation qualifiante';} ?></a></li>
+			    			<li role="presentation" class=""><a href="#stage" aria-controls="stage" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php if(isset($atouts_jeunes)){print 'Contrat';}else{print 'Stage';} ?></a></li>
 			  			</ul>
 			  			</div>
 				  	</div>
