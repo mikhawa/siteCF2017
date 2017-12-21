@@ -78,10 +78,12 @@ if(!is_front_page()){
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php header_image(); ?>"  height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="<?php bloginfo( 'name' ); ?>"/></a>
 							</div><!-- end of #logo -->
 							<?php
-							if($_SERVER['REQUEST_URI'] != '/formation/atouts-jeunes/'):?>
-							<p id="cf2m-description"><?=get_bloginfo('description');?></p>
-						<?php else: ?>
+							if($_SERVER['REQUEST_URI'] == '/formation/atouts-jeunes/'):?>
 							<p id="cf2m-description">Formation de base pour les jeunes</p>
+						<?php elseif($_SERVER['REQUEST_URI'] == '/formation/fle-pour-informatique/'): ?>
+							<p id="cf2m-description">Préformation</p>
+							<?php else: ?>
+							<p id="cf2m-description"><?=get_bloginfo('description');?></p>
 						<?php endif; ?>
 
 							

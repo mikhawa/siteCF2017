@@ -45,9 +45,10 @@
 
 				?>
 				<div class="row nomarge pad-top-10">
-				<?php if($post->ID == 220):?>
-					<?php $atouts_jeunes = TRUE; ?>
-					<div class="col-md-4 col-md-offset-8 nopad">
+				<?php if($post->ID == 220): $atouts_jeunes = TRUE; $fle = FALSE; ?>
+                    <div class="col-md-4 col-md-offset-8 nopad">
+                    <?php elseif($post->ID == 1267): $atouts_jeunes = FALSE; $fle = TRUE; ?>
+					<div class="col-md-6 col-md-offset-6 nopad">
 				<?php else: ?>
 					<div class="col-md-6 col-md-offset-6 nopad">
 				<?php endif; ?>
@@ -77,7 +78,7 @@
 			<div class="col-sm-4">
 				<div class="f-box">
 				  	<div class="f-box-heading">
-				    	<h4 class="f-box-title"><?php if(isset($atouts_jeunes)){print 'Formation de base';}else{print 'Qualités';} ?></h4>
+				    	<h4 class="f-box-title"><?php if(isset($atouts_jeunes)&&$atouts_jeunes==true){print 'Formation de base';}elseif(isset($fle)&&$fle==true){echo "Préformation";}else{print 'Qualités';} ?></h4>
 				  	</div>
 				  	<div class="f-box-body">
 				    	<?php print $metas['qualites'][0]; ?>
