@@ -45,11 +45,24 @@
 
 				?>
 				<div class="row nomarge pad-top-10">
-				<?php if($post->ID == 220): $atouts_jeunes = TRUE; $fle = FALSE; ?>
-                    <div class="col-md-4 col-md-offset-8 nopad">
-                    <?php elseif($post->ID == 1267): $atouts_jeunes = FALSE; $fle = TRUE; ?>
+				<?php
+                // atouts jeunes
+                if($post->ID == 220): $change = 'aj';
+                ?>
+                    <div class="col-md-4 col-md-offset-8 nopad"><?php
+                 // fle
+                 elseif($post->ID == 1267): $change = 'fle';
+                 ?>
 					<div class="col-md-6 col-md-offset-6 nopad">
-				<?php else: ?>
+                 <?php
+                 // Découverte digitale
+                 elseif($post->ID == 1275): $change = 'dd';
+                 ?>
+                        <div class="col-md-6 col-md-offset-6 nopad">
+				<?php
+                // autres formations
+                else: $change = 'autres';
+                ?>
 					<div class="col-md-6 col-md-offset-6 nopad">
 				<?php endif; ?>
 						<h1 class="single-f-title" style="background: url(<?=$image;?>) no-repeat 2px 2px;background-color:<?=$rgba;?>;background-size:45px"><?php the_title(); ?></h1>
@@ -67,7 +80,16 @@
 			<div class="col-sm-4">
 				<div class="f-box">
 				  	<div class="f-box-heading">
-				    	<h4 class="f-box-title"><?php if(isset($atouts_jeunes)){print 'Conditions d\'accès';}else{print 'Métier';} ?></h4>
+				    	<h4 class="f-box-title"><?php
+                            if($change == 'aj' || $change == 'fle'){
+                                echo 'Conditions d\'accès';
+                            }elseif($change == 'dd'){
+                                echo 'Formation / Détermination';
+                            }else{
+                                echo 'Métier';
+                            }
+
+                            ?></h4>
 				  	</div>
 				  	<div class="f-box-body">
 				    	<?php print $metas['metier'][0]; ?>
@@ -78,7 +100,17 @@
 			<div class="col-sm-4">
 				<div class="f-box">
 				  	<div class="f-box-heading">
-				    	<h4 class="f-box-title"><?php if(isset($atouts_jeunes)&&$atouts_jeunes==true){print 'Formation de base';}elseif(isset($fle)&&$fle==true){echo "Préformation";}else{print 'Qualités';} ?></h4>
+				    	<h4 class="f-box-title"><?php
+                            if($change == 'aj'){
+                                echo 'Formation de base';
+                            }elseif($change == 'fle'){
+                                echo "Préformation";
+                            }elseif($change == 'dd'){
+                                echo "Objectifs";
+                            }else{
+                                echo 'Qualités';
+                            }
+                            ?></h4>
 				  	</div>
 				  	<div class="f-box-body">
 				    	<?php print $metas['qualites'][0]; ?>
@@ -89,7 +121,14 @@
 			<div class="col-sm-4">
 				<div class="f-box">
 				  	<div class="f-box-heading">
-				    	<h4 class="f-box-title"><?php if(isset($atouts_jeunes)){print 'Objectifs';}else{print 'Compétences';} ?></h4>
+				    	<h4 class="f-box-title"><?php
+                            if($change == 'aj' || $change == 'fle') {
+                                echo 'Objectifs';
+                            }elseif($change == 'dd'){
+                                echo "Conditions d'accès";
+                            }else{
+                                echo 'Compétences';
+                            } ?></h4>
 				  	</div>
 				  	<div class="f-box-body">
 				    	<?php print $metas['competences'][0]; ?>
@@ -104,7 +143,12 @@
 			<div class="col-sm-4 marge-top-7">
 				<div class="f-box">
 				  	<div class="f-box-heading">
-				    	<h4 class="f-box-title">Matières</h4>
+				    	<h4 class="f-box-title"><?php
+                            if($change =="dd"){
+                            echo 'Contenu';
+                            }else{
+                            echo 'Matières';
+                            } ?></h4>
 				  	</div>
 				  	<div class="f-box-body">
 				    	<?php print $metas['programme_de_cours'][0]; ?>
@@ -118,9 +162,24 @@
 				  	<div class=" text-center">
 <div class="f-box-heading">
 				    	<ul class="nav nav-tabs nav-justified" role="tablist">
-			    			<li role="presentation" class="active"><a href="#prefo" aria-controls="prefo" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php if(isset($atouts_jeunes)){print 'Tests d\'entrée';}else{print 'Préfo';} ?></a></li>
-			    			<li role="presentation" class=""><a href="#fq" aria-controls="fq" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php if(isset($atouts_jeunes)){print 'Lieu de formation';}else{print 'Formation qualifiante';} ?></a></li>
-			    			<li role="presentation" class=""><a href="#stage" aria-controls="stage" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php if(isset($atouts_jeunes)){print 'Contrat';}else{print 'Stage';} ?></a></li>
+			    			<li role="presentation" class="active"><a href="#prefo" aria-controls="prefo" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php
+                                    if($change == 'aj' || $change == 'fle' || $change =="dd"){
+                                        echo 'Tests d\'entrée';
+                                    }else{
+                                        echo 'Préfo';
+                                    } ?></a></li>
+			    			<li role="presentation" class=""><a href="#fq" aria-controls="fq" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php
+                                    if($change == 'aj' || $change == 'fle' || $change =="dd"){
+                                        echo 'Lieu de formation';
+                                    }else{
+                                        echo 'Formation qualifiante';
+                                    } ?></a></li>
+			    			<li role="presentation" class=""><a href="#stage" aria-controls="stage" role="tab" data-toggle="tab" style="color:<?=$metas['couleur'][0];?>"><?php
+                                    if($change == 'aj' || $change == 'fle' || $change =="dd"){
+                                        echo 'Contrat';
+                                    }else{
+                                        echo 'Stage';
+                                    } ?></a></li>
 			  			</ul>
 			  			</div>
 				  	</div>
