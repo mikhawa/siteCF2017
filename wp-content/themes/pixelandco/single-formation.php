@@ -58,7 +58,7 @@
                  // Découverte digitale
                  elseif($post->ID == 1275): $change = 'dd';
                  ?>
-                        <div class="col-md-6 col-md-offset-6 nopad">
+                        <div class="col-md-8 col-md-offset-4 nopad">
 				<?php
                 // autres formations
                 else: $change = 'autres';
