@@ -82,6 +82,8 @@ if(!is_front_page()){
 							<p id="cf2m-description">Formation de base pour les jeunes</p>
 						<?php elseif($_SERVER['REQUEST_URI'] == '/formation/fle-pour-informatique/'): ?>
 							<p id="cf2m-description">Préformation</p>
+						<?php elseif($_SERVER['REQUEST_URI'] == '/formation/decouverte-digitale/'): ?>
+							<p id="cf2m-description">Formation / Détermination</p>
 							<?php else: ?>
 							<p id="cf2m-description"><?=get_bloginfo('description');?></p>
 						<?php endif; ?>
