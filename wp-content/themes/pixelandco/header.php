@@ -1,5 +1,5 @@
 <?php
-$wp_session = WP_Session::get_instance();
+/*$wp_session = WP_Session::get_instance();
 if(isset($wp_query->query_vars['part'])){
 	$section = $wp_query->query_vars['part'];
 }else{
@@ -26,7 +26,7 @@ if(!is_front_page()){
     }
 }else{
     wp_session_unset();
-}
+}*/
 ?>
 <!DOCTYPE html>
 <!--[if !IE]>
@@ -137,7 +137,8 @@ if(!is_front_page()){
 								<span class="sr-only">Toggle navigation</span>
 								<i class="fa fa-bars"></i>
 							</button>
-						<?php 
+						<?php
+/*
 						if(isset($display_nav_employers)){
 
 				            wp_nav_menu( array(
@@ -161,8 +162,17 @@ if(!is_front_page()){
 									    'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
 									    'walker' => new wp_bootstrap_navwalker()
 							));
-				        }
+				        }*/
 				        //sparkling_header_menu();
+				         wp_nav_menu( array(
+				                        'theme_location' => 'Students',
+				                        'menu' => 'Students',
+				                        'container' => 'div',
+				                        'container_class' => 'collapse navbar-collapse navbar-main-collapse',
+    									'menu_class' => 'nav navbar-nav',
+									    'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+									    'walker' => new wp_bootstrap_navwalker()
+							));
 						 ?>
 					</div>
 				</div>
